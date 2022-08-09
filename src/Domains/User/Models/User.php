@@ -37,6 +37,6 @@ class User extends Authenticatable
      */
     protected static function newFactory(): Factory
     {
-        return new UserFactory();
+        return UserFactory::new();
     }
 }
