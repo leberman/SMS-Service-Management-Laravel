@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class DefaultUserSeeder extends Seeder
 {
-    public function run():void
+    public function run(): void
     {
         User::factory()->create([
             'uuid' => Str::uuid()->toString(),

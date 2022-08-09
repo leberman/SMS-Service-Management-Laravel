@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Domains\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -12,7 +14,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     protected $fillable = [
         'uuid',
@@ -35,5 +39,4 @@ class User extends Authenticatable
     {
         return new UserFactory();
     }
-
 }
