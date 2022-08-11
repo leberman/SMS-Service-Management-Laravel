@@ -1,11 +1,9 @@
 <?php
 
-namespace Domains\Shared\Jobs\Sms;
+namespace Domains\User\Jobs\Sms;
 
-use Domains\Shared\Actions\CreateSmsAction;
-use Domains\Shared\Aggregates\SmsAggregate;
-use Domains\Shared\ValueObjects\SmsValueObject;
-use http\Client\Curl\User;
+use Domains\User\Aggregates\SmsAggregate;
+use Domains\User\ValueObjects\SmsValueObject;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -27,6 +25,8 @@ class CreateSms implements ShouldQueue
     public function handle(): void
     {
         $userObj = \Domains\User\Models\User::find($this->userId);
+
+        //Aggregate hold events in memory and finally store in db - job
         SmsAggregate::retrieve(
             uuid: Str::uuid()->toString()
         )->createSms(

@@ -1,16 +1,17 @@
 <?php
 
-namespace Domains\Shared\Aggregates;
+namespace Domains\User\Aggregates;
 
-use Domains\Shared\Events\SmsWasCreated;
-use Domains\Shared\ValueObjects\SmsValueObject;
+use Domains\User\Events\SmsWasCreated;
 use Domains\User\Models\User;
-use \Spatie\EventSourcing\AggregateRoots\AggregateRoot;
+use Domains\User\ValueObjects\SmsValueObject;
+use Spatie\EventSourcing\AggregateRoots\AggregateRoot;
 
 class SmsAggregate extends AggregateRoot
 {
     public function createSms(SmsValueObject $smsValueObject, User $userObject): static
     {
+        //hold events in memory, when event SmsWasCreated persist after this method save to db
         $this->recordThat(
             domainEvent: new SmsWasCreated(
                 smsvalueobject: $smsValueObject,

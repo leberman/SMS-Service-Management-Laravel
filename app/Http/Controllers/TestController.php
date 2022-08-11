@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Domains\Shared\Drivers\Sms\FarazSmsMessage;
 use Ghasedak\GhasedakApi;
 use RicorocksDigitalAgency\Soap\Facades\Soap;
+use Domains\User\Drivers\Sms\FarazSmsMessage;
 use function PHPUnit\Framework\isNull;
 
 

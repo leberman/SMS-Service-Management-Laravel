@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Channels;
 
@@ -11,9 +12,8 @@ class SmsChannel
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
-     * @return void
      */
-    public function send($notifiable, Notification $notification)
+    public function send($notifiable, Notification $notification) :void
     {
         //create instance of model and call method toSms()
         $message = $notification->toSms($notifiable);

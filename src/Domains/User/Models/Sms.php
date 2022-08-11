@@ -1,10 +1,10 @@
 <?php
 
-namespace Domains\Shared\Models;
+namespace Domains\User\Models;
 
-use Domains\Shared\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Domains\User\Concerns\HasUuid;
 
 class Sms extends Model
 {

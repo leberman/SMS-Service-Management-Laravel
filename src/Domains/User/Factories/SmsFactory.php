@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Domains\Shared\Factories;
+namespace Domains\User\Factories;
 
-use Domains\Shared\ValueObjects\SmsValueObject;
+use Domains\User\ValueObjects\SmsValueObject;
 
 class SmsFactory
 {

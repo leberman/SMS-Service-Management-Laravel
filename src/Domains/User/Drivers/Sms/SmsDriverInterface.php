@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Shared\Drivers\Sms;
+namespace Domains\User\Drivers\Sms;
 
 interface SmsDriverInterface
 {

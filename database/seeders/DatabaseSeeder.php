@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \Domains\User\Models\User::factory(10)->create();
+        // \User\Models\User::factory(10)->create();
 
         if (app()->environment('local')) {
             $this->call(
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        // \Domains\User\Models\User::factory()->create([
+        // \User\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);

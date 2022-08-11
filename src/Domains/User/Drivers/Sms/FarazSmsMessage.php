@@ -1,5 +1,5 @@
 <?php
-namespace Domains\Shared\Drivers\Sms;
+namespace Domains\User\Drivers\Sms;
 
 use SoapClient;
 use function config;

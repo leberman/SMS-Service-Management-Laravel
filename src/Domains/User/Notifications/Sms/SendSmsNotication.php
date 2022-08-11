@@ -1,14 +1,16 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Notifications;
+namespace Domains\User\Notifications\Sms;
 
 use App\Channels\SmsChannel;
-use Domains\Shared\Drivers\Sms\FarazSmsMessage;
-use Domains\Shared\Drivers\Sms\GhasedakSmsMessage;
+use Domains\User\Drivers\Sms\FarazSmsMessage;
+use Domains\User\Drivers\Sms\GhasedakSmsMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
+use function config;
 
 class SendSmsNotication extends Notification implements ShouldQueue
 {
@@ -42,6 +44,8 @@ class SendSmsNotication extends Notification implements ShouldQueue
     public function toSms(mixed $notifiable): object
     {
         Log::info(config('notify.default'));
+
+        //new SMS Drives add this switch
         $message = match (config('notify.default')) {
             'ghasedak' => new GhasedakSmsMessage(),
             'farazsms' => new FarazSmsMessage(),

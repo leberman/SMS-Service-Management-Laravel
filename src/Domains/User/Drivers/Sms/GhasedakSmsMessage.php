@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Domains\Shared\Drivers\Sms;
+namespace Domains\User\Drivers\Sms;
 
 use Ghasedak\GhasedakApi;
 use function config;

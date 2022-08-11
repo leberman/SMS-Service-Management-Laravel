@@ -1,8 +1,6 @@
 <?php
 
-namespace Domains\Shared\ValueObjects;
-
-use phpseclib3\Math\PrimeField\Integer;
+namespace Domains\User\ValueObjects;
 
 class SmsValueObject
 {

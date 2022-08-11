@@ -1,28 +1,38 @@
 <?php
-declare(strict_types=1);
+
 namespace App\Providers;
 
-use Domains\Shared\Projectors\SmsProjectors;
-use Domains\Shared\Reactors\SendSmsReactor;
 use Illuminate\Support\ServiceProvider;
-use phpDocumentor\Reflection\Project;
+use Domains\User\Projectors\SmsProjectors;
+use Domains\User\Reactors\SendSmsReactor;
 use Spatie\EventSourcing\Facades\Projectionist;
 
 class EventSourcingServiceProvider extends ServiceProvider
 {
-
-    public function register():void
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
     {
+        //triggered when new events and store sms in DB
         Projectionist::addProjectors(
             projectors: [SmsProjectors::class]
         );
 
+        //called when the event fires and send sms Notify
         Projectionist::addReactors(
             reactors: [SendSmsReactor::class]
         );
     }
 
-    public function boot():void
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
     {
         //
     }

@@ -1,10 +1,10 @@
 <?php
 
 declare(strict_types=1);
-namespace Domains\Shared\Events;
+namespace Domains\User\Events;
 
-use Domains\Shared\ValueObjects\SmsValueObject;
 use Domains\User\Models\User;
+use Domains\User\ValueObjects\SmsValueObject;
 use Spatie\EventSourcing\StoredEvents\ShouldBeStored;
 
 class SmsWasCreated extends ShouldBeStored
