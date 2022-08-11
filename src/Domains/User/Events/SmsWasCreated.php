@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Domains\User\Events;
 
 use Domains\User\Models\User;
@@ -12,6 +13,6 @@ class SmsWasCreated extends ShouldBeStored
     public function __construct(
         public SmsValueObject $smsvalueobject,
         public User $userObject
-    )
-    {}
+    ) {
+    }
 }

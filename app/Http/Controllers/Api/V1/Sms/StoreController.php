@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\V1\Sms;
@@ -24,12 +25,12 @@ class StoreController extends Controller
             userId: $request->user_id,
             smsValueObject: SmsFactory::create(
                 attributes: $request->validated()
-            ));
+            )
+        );
 
         return response(
             content: "job sms for user {$request->user_id} created.",
             status: 202
         );
     }
-
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Domains\User\Drivers\Sms;
 
 use Ghasedak\GhasedakApi;
@@ -8,8 +7,6 @@ use function config;
 
 class GhasedakSmsMessage implements SmsDriverInterface
 {
-
-
     protected string $to;
     protected array $messages;
 
@@ -47,10 +44,9 @@ class GhasedakSmsMessage implements SmsDriverInterface
 
         try {
             $obj = new GhasedakApi($this->baseUrl);
-            return $obj->SendSimple($this->to,$this->messages[0],null);
+            return $obj->SendSimple($this->to, $this->messages[0], null);
         } catch (\Throwable $e) {
             throw new \Exception($e->getMessage());
         }
-
     }
 }

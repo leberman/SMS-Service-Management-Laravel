@@ -20,7 +20,8 @@ class CreateSms implements ShouldQueue
     public function __construct(
         public int $userId,
         public SmsValueObject $smsValueObject
-    ) {}
+    ) {
+    }
 
     public function handle(): void
     {
@@ -33,7 +34,5 @@ class CreateSms implements ShouldQueue
             smsValueObject: $this->smsValueObject,
             userObject: $userObj
         )->persist();
-
     }
-
 }

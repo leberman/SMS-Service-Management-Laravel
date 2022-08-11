@@ -9,10 +9,10 @@ use RicorocksDigitalAgency\Soap\Facades\Soap;
 use Domains\User\Drivers\Sms\FarazSmsMessage;
 use function PHPUnit\Framework\isNull;
 
-
 //Drivers
 //https://github.com/tzsk/sms
-interface SmsInterface {
+interface SmsInterface
+{
     public function send($receptor, $message, $lineNumber);
 }
 class GhasedakSMS implements SmsInterface
@@ -39,9 +39,9 @@ class GhasedakSMS implements SmsInterface
         return $this->obj;
     }
 
-    public function send($message,$lineNumber,$receptor)
+    public function send($message, $lineNumber, $receptor)
     {
-        return $this->obj->SendSimple($message,$lineNumber,$receptor);
+        return $this->obj->SendSimple($message, $lineNumber, $receptor);
     }
 }
 class FarazSms implements SmsInterface
@@ -74,11 +74,11 @@ class FarazSms implements SmsInterface
         $user = "";
         $pass = "";
         $fromNum = "";
-        $toNum = array("9122000000","9210000000");
+        $toNum = ["9122000000","9210000000"];
         $messageContent = '';
         $op  = "send";
         $time = '';
-        return $this->obj->SendSMS($this->fromNum,$toNum,$messageContent,$user,$pass,$time,$op);
+        return $this->obj->SendSMS($this->fromNum, $toNum, $messageContent, $user, $pass, $time, $op);
     }
 
     public function send($receptor, $message, $lineNumber)
@@ -87,7 +87,8 @@ class FarazSms implements SmsInterface
     }
 }
 
-abstract class WebApi {
+abstract class WebApi
+{
     abstract public function createNotify();
 
     public function assert($receptor, $message, $lineNumber)
@@ -96,15 +97,15 @@ abstract class WebApi {
         return $notify->send($receptor, $message, $lineNumber);
     }
 }
-class GhasedakWebApi extends WebApi {
-
+class GhasedakWebApi extends WebApi
+{
     public function createNotify(): object
     {
         return GhasedakSMS::getInstance();
     }
 }
-class FarazWebApi extends WebApi {
-
+class FarazWebApi extends WebApi
+{
     public function createNotify(): FarazSms
     {
 //        return new FarazSms();
@@ -128,17 +129,16 @@ class TestController extends Controller
 //        var_dump($b);
 
 
-//$ne = new GhasedakWebApi();
-//var_dump($ne->assert($receptor, $message, $lineNumber));
+        //$ne = new GhasedakWebApi();
+        //var_dump($ne->assert($receptor, $message, $lineNumber));
 
 
 //        $user = User::first();
 //        $user->notify(new SendSmsNotication());
 
-// Or send a sms directly
+        // Or send a sms directly
         $sms = new FarazSmsMessage();
-// Replace with your telephone number :-)
+        // Replace with your telephone number :-)
         return $sms->to('09390905201')->message('Hello World.')->send();
-
     }
 }

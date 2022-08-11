@@ -12,10 +12,12 @@ class CreateSmsAction
     {
         //create new sms in db, type cast and model values objects in SmsValueObjects
         return Sms::create(
-            array_merge($smsValueObject->toArray(),
-            [
+            array_merge(
+                $smsValueObject->toArray(),
+                [
                 'uuid' => Str::uuid()->toString()
-            ])
+            ]
+            )
         );
     }
 }

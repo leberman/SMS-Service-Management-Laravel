@@ -24,6 +24,5 @@ class SendSmsReactor extends Reactor implements ShouldQueue
         $event->userObject->notify(new SendSmsNotication($event->smsvalueobject->message));
 
         Log::info('job successfully');
-
     }
 }

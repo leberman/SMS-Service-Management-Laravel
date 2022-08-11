@@ -1,11 +1,12 @@
 <?php
+
 namespace Domains\User\Drivers\Sms;
 
 use SoapClient;
 use function config;
 
-class FarazSmsMessage implements SmsDriverInterface {
-
+class FarazSmsMessage implements SmsDriverInterface
+{
     protected string $to;
     protected array $messages;
     protected object $client;
@@ -44,11 +45,9 @@ class FarazSmsMessage implements SmsDriverInterface {
 
         try {
             $obj = @new SoapClient($this->baseUrl);
-            return $obj->SendSMS($this->fromNum,$this->to,$this->messages[0],$this->username,$this->password,null,'send');
+            return $obj->SendSMS($this->fromNum, $this->to, $this->messages[0], $this->username, $this->password, null, 'send');
         } catch (\Throwable $e) {
             throw new \Exception($e->getMessage());
         }
-
     }
-
 }

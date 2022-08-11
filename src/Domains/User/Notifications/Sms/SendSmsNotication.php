@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Domains\User\Notifications\Sms;
@@ -22,7 +23,8 @@ class SendSmsNotication extends Notification implements ShouldQueue
      */
     public function __construct(
         private string $message
-    ) {}
+    ) {
+    }
 
     /**
      * Get the notification's delivery channels.
@@ -55,5 +57,4 @@ class SendSmsNotication extends Notification implements ShouldQueue
             ->to($notifiable->phone)
             ->message($this->message);
     }
-
 }
