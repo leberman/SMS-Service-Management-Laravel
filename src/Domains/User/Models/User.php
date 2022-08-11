@@ -6,6 +6,7 @@ namespace Domains\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Domains\Shared\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,9 +15,10 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
     use Notifiable;
+    use HasUuid;
+    use HasFactory;
+    use HasApiTokens;
 
     protected $fillable = [
         'uuid',
