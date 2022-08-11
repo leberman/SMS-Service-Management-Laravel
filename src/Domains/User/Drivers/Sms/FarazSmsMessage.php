@@ -11,6 +11,10 @@ class FarazSmsMessage implements SmsDriverInterface
     protected array $messages;
     protected object $client;
 
+    /**
+     * FarazSms constructor.
+     * @param array $messages
+     */
     public function __construct(array $messages = [])
     {
         $this->messages = $messages;
@@ -23,6 +27,10 @@ class FarazSmsMessage implements SmsDriverInterface
     }
 
 
+    /**
+     * set message
+     * @param string $message
+     */
     public function message(string $message = ''): self
     {
         $this->messages[] = $message;
@@ -30,6 +38,10 @@ class FarazSmsMessage implements SmsDriverInterface
         return $this;
     }
 
+    /**
+     * set number to send
+     * @param int $to
+     */
     public function to(int $to): self
     {
         $this->to = $to;
@@ -37,6 +49,11 @@ class FarazSmsMessage implements SmsDriverInterface
         return $this;
     }
 
+
+    /**
+     * send sms
+     * @return mixed
+     */
     public function send(): mixed
     {
         if (!$this->to || !count($this->messages)) {

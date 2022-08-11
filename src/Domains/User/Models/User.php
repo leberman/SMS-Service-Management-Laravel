@@ -9,6 +9,7 @@ use Database\Factories\UserFactory;
 use Domains\User\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -41,4 +42,15 @@ class User extends Authenticatable
     {
         return UserFactory::new();
     }
+
+
+    public function sms(): HasMany
+    {
+        return $this->hasMany(
+            related: Sms::class,
+            foreignKey: 'user_id'
+        );
+    }
+
+
 }

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\Member\IndexContoller;
+use App\Http\Controllers\Api\V1\Sms\IndexController;
 use App\Http\Controllers\Api\V1\Sms\StoreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,4 +18,5 @@ Route::prefix('members')->as('members:')->group(callback: function () {
 
 Route::prefix('sms')->as('sms:')->group(callback: function () {
     Route::post('/', StoreController::class)->name('store'); // [api:v1:sms:store]
+    Route::get('/', IndexController::class)->name('index'); // [api:v1:sms:index]
 });
