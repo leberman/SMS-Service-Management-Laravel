@@ -41,14 +41,20 @@ sail artisan queue:work
 
 You can send your SMS in two ways: 
 
-if used simple -> you can create object sms drives and call methods [to,message,send]
+if simple used -> you can create object sms drives and call methods [to,message,send]
 ```
   $sms = new FarazSmsMessage();
   $sms->to('09123456789')->message('Hello World!')->send();
 ```
-if used default laravel notify -> you can create object from user and call method new notify and use instance of SendSmsNotication
+if default used laravel notify -> you can create object from user and call method new notify and use instance of SendSmsNotication
 ```
 $userObj->notify(new SendSmsNotication('Hello World!'));
+```
+
+
+Run Test: 
+```
+sail artisan test
 ```
 
 API endpoints :
