@@ -18,7 +18,10 @@ FARAZSMS_USER=username
 FARAZSMS_PASSWORD=password
 FARAZSMS_FROMNUM=YourNumber
 FARAZSMS_BASE_URL=http://ippanel.com/class/sms/wsdlservice/server.php?wsdl
+```
 
+Set environment rabbitmq:
+```
 //set parameter for rabbitmq
 RABBITMQ_HOST=YourRabbitHost
 RABBITMQ_PORT=5672
@@ -33,6 +36,19 @@ sail up -d
 sail composer up
 sail artisan migrate --seed
 sail artisan queue:work 
+```
+
+
+You can send your SMS in two ways: 
+
+if used simple -> you can create object sms drives and call methods [to,message,send]
+```
+  $sms = new FarazSmsMessage();
+  $sms->to('09123456789')->message('Hello World!')->send();
+```
+if used default notify laravel -> you can create object from user and call method new notify and use instance of SendSmsNotication
+```
+$userObj->notify(new SendSmsNotication('Hello World!'));
 ```
 
 Run endpoints api:
