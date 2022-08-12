@@ -20,11 +20,9 @@ class DatabaseSeeder extends Seeder
             $this->call(
                 class: DefaultUserSeeder::class
             );
+            $this->call(
+                class: DefaultSmsSeeder::class
+            );
         }
-
-        // \User\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

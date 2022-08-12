@@ -9,6 +9,7 @@ use App\Http\Requests\Api\V1\Sms\StoreRequest;
 use Domains\User\Jobs\Sms\CreateSms;
 use Illuminate\Http\Response;
 use Domains\User\Factories\SmsFactory;
+use JustSteveKing\StatusCode\Http;
 
 class StoreController extends Controller
 {
@@ -18,7 +19,7 @@ class StoreController extends Controller
      * @param StoreRequest $request
      * @return Response
      */
-    public function __invoke(StoreRequest $request): Response
+    public function __invoke(StoreRequest $request)
     {
         //create sms and dispatch the job
         CreateSms::dispatch(
@@ -30,7 +31,7 @@ class StoreController extends Controller
 
         return response(
             content: "job sms for user {$request->user_id} created.",
-            status: 202
+            status: Http::CREATED()
         );
     }
 }

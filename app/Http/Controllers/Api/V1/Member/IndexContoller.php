@@ -10,6 +10,7 @@ use App\Http\Resources\Api\V1\Member\UserResource;
 use Domains\User\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use JustSteveKing\StatusCode\Http;
 
 class IndexContoller extends Controller
 {
@@ -20,7 +21,7 @@ class IndexContoller extends Controller
             data: UserResource::collection(
                 resource: $users,
             ),
-            status: 202
+            status: Http::OK
         );
     }
 }

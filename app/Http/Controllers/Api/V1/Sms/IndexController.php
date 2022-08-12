@@ -11,6 +11,7 @@ use Domains\User\Models\Sms;
 use Domains\User\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use JustSteveKing\StatusCode\Http;
 
 class IndexController extends Controller
 {
@@ -21,7 +22,7 @@ class IndexController extends Controller
             data: SmsResource::collection(
                 resource: $sms,
             ),
-            status: 202
+            status: Http::OK()
         );
     }
 }
