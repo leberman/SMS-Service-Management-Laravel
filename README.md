@@ -6,7 +6,7 @@ Send async SMS for user with RabbitMQ and DBJob :hourglass:
 Event handler process with [spatie event sourcing](https://spatie.be/index.php/docs/laravel-event-sourcing/v7/introduction)
 
 
-Default SMS drivers (ghasedak,farazsms):
+Set environment SMS drivers (ghasedak,farazsms):
 ```
 DEFAULT_SMS_NOTIFY=ghasedak 
 
