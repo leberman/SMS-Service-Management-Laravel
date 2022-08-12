@@ -51,7 +51,7 @@ if used default notify laravel -> you can create object from user and call metho
 $userObj->notify(new SendSmsNotication('Hello World!'));
 ```
 
-Run endpoints api:
+API endpoints :
 
 <a href="https://insomnia.rest/run/?label=SMS%20Management%20Service&uri=https://github.com/leberman/SMS-Management/blob/main/tests/Insomnia_SMSManage_2022-08-12.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 
