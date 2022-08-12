@@ -46,7 +46,7 @@ if used simple -> you can create object sms drives and call methods [to,message,
   $sms = new FarazSmsMessage();
   $sms->to('09123456789')->message('Hello World!')->send();
 ```
-if used default notify laravel -> you can create object from user and call method new notify and use instance of SendSmsNotication
+if used default laravel notify -> you can create object from user and call method new notify and use instance of SendSmsNotication
 ```
 $userObj->notify(new SendSmsNotication('Hello World!'));
 ```
