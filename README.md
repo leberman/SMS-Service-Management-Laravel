@@ -1,6 +1,6 @@
 
 
-## SMS Management Service Laravel Project
+## SMS Service Management Laravel Project
 Send async SMS for user with RabbitMQ and DBJob :hourglass:
 
 Event handler process with [spatie event sourcing](https://spatie.be/index.php/docs/laravel-event-sourcing/v7/introduction)
